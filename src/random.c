@@ -17,13 +17,13 @@ mrb_value
 mrb_random_srand(mrb_state *mrb, mrb_value seed)
 {
   if (mrb_nil_p(seed)) {
-    seed = mrb_fixnum_value(time(NULL) + rand());
+    seed = mrb_fixnum_value(time(NULL) + random());
     if (mrb_fixnum(seed) < 0) {
       seed = mrb_fixnum_value( 0 - mrb_fixnum(seed));
     }
   }
 
-  srand((unsigned) mrb_fixnum(seed));
+  srandom((unsigned) mrb_fixnum(seed));
 
   return seed;
 }
@@ -31,7 +31,7 @@ mrb_random_srand(mrb_state *mrb, mrb_value seed)
 mrb_value
 mrb_random_rand(mrb_state *mrb, mrb_value max)
 {
-  int crand  = rand();
+  int crand  = random();
   mrb_value value;
 
   if (mrb_fixnum(max) == 0) {
