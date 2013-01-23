@@ -128,3 +128,8 @@ mrb_mruby_simple_random_gem_init(mrb_state *mrb)
   mrb_define_method(mrb, krn, "srand",                   mrb_f_srand,        ARGS_ANY());
 
 }
+
+void
+mrb_mruby_simple_random_gem_final(mrb_state *mrb)
+{
+}
