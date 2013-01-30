@@ -14,13 +14,13 @@ assert('Kernel#rand(num)') do
 end
 
 assert('Kernel#rand entropy check') do
-  ary = []
+  hash = {}
   size = 1000
   size.times do
-    ary << rand(size * size)
+    hash[rand(size * size)] = 1
   end
 
-  ary.uniq.size > ary.size * 0.9
+  hash.size > size * 0.9
 end
 
 
