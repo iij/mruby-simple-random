@@ -8,7 +8,7 @@
 
 #include "mruby/variable.h"
 
-#include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
 
 #define RAND_SEED_KEY "$mrb_ext_rand_seed"
