@@ -124,8 +124,8 @@ mrb_mruby_simple_random_gem_init(mrb_state *mrb)
 
   mrb_gv_set(mrb, mrb_intern(mrb, RAND_SEED_KEY), mrb_nil_value());
 
-  mrb_define_method(mrb, krn, "rand",                    mrb_f_rand,         ARGS_ANY());
-  mrb_define_method(mrb, krn, "srand",                   mrb_f_srand,        ARGS_ANY());
+  mrb_define_method(mrb, krn, "rand",                    mrb_f_rand,         MRB_ARGS_ANY());
+  mrb_define_method(mrb, krn, "srand",                   mrb_f_srand,        MRB_ARGS_ANY());
 
 }
 
