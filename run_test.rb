@@ -15,6 +15,16 @@ if __FILE__ == $0
   exit system(%Q[cd #{dir}; MRUBY_CONFIG=#{File.expand_path __FILE__} ruby minirake #{build_args.join(' ')}])
 end
 
+module MRuby
+  module Gem
+    class List
+      def delete_if(&b)
+        @ary.delete_if(&b)
+      end
+    end
+  end
+end
+
 MRuby::Build.new do |conf|
   toolchain :gcc
   conf.gembox 'default'
