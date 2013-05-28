@@ -35,7 +35,7 @@ mrb_random_rand(mrb_state *mrb, mrb_value max)
   mrb_value value;
 
   if (mrb_fixnum(max) == 0) {
-    value = mrb_float_value(1.0 * crand / RAND_MAX);
+    value = mrb_float_value(mrb, 1.0 * crand / RAND_MAX);
   } else {
     value = mrb_fixnum_value(crand % mrb_fixnum(max));
   }
