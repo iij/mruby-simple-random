@@ -72,7 +72,7 @@ mrb_f_rand(mrb_state *mrb, mrb_value self)
     return mrb_nil_value();
   }
 
-  mrb_value seed = mrb_gv_get(mrb, mrb_intern(mrb, RAND_SEED_KEY));
+  mrb_value seed = mrb_gv_get(mrb, mrb_intern_lit(mrb, RAND_SEED_KEY));
   if (mrb_nil_p(seed)) {
     mrb_random_srand(mrb, mrb_nil_value());
   }
@@ -110,8 +110,8 @@ mrb_f_srand(mrb_state *mrb, mrb_value self)
   }
 
   seed = mrb_random_srand(mrb, seed);
-  mrb_value old_seed = mrb_gv_get(mrb, mrb_intern(mrb, RAND_SEED_KEY));
-  mrb_gv_set(mrb, mrb_intern(mrb, RAND_SEED_KEY), seed);
+  mrb_value old_seed = mrb_gv_get(mrb, mrb_intern_lit(mrb, RAND_SEED_KEY));
+  mrb_gv_set(mrb, mrb_intern_lit(mrb, RAND_SEED_KEY), seed);
 
   return old_seed;
 }
@@ -122,7 +122,7 @@ mrb_mruby_simple_random_gem_init(mrb_state *mrb)
   struct RClass *krn;
   krn = mrb->kernel_module;
 
-  mrb_gv_set(mrb, mrb_intern(mrb, RAND_SEED_KEY), mrb_nil_value());
+  mrb_gv_set(mrb, mrb_intern_lit(mrb, RAND_SEED_KEY), mrb_nil_value());
 
   mrb_define_method(mrb, krn, "rand",                    mrb_f_rand,         MRB_ARGS_ANY());
   mrb_define_method(mrb, krn, "srand",                   mrb_f_srand,        MRB_ARGS_ANY());
