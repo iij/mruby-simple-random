@@ -48,7 +48,7 @@ mrb_f_rand(mrb_state *mrb, mrb_value self)
 {
   mrb_value *argv;
   int argc;
-  mrb_value max;
+  mrb_value max, seed;
 
   mrb_get_args(mrb, "*", &argv, &argc);
 
@@ -72,7 +72,7 @@ mrb_f_rand(mrb_state *mrb, mrb_value self)
     return mrb_nil_value();
   }
 
-  mrb_value seed = mrb_gv_get(mrb, mrb_intern_lit(mrb, RAND_SEED_KEY));
+  seed = mrb_gv_get(mrb, mrb_intern_lit(mrb, RAND_SEED_KEY));
   if (mrb_nil_p(seed)) {
     mrb_random_srand(mrb, mrb_nil_value());
   }
@@ -85,7 +85,7 @@ mrb_f_srand(mrb_state *mrb, mrb_value self)
 {
   mrb_value *argv;
   int argc;
-  mrb_value seed;
+  mrb_value old_seed, seed;
 
   mrb_get_args(mrb, "*", &argv, &argc);
 
@@ -110,7 +110,7 @@ mrb_f_srand(mrb_state *mrb, mrb_value self)
   }
 
   seed = mrb_random_srand(mrb, seed);
-  mrb_value old_seed = mrb_gv_get(mrb, mrb_intern_lit(mrb, RAND_SEED_KEY));
+  old_seed = mrb_gv_get(mrb, mrb_intern_lit(mrb, RAND_SEED_KEY));
   mrb_gv_set(mrb, mrb_intern_lit(mrb, RAND_SEED_KEY), seed);
 
   return old_seed;
