@@ -1,5 +1,8 @@
-mruby-simple-random
-=========
+# iij/mruby-simple-random
+
+## Note
+Repository name is "iij/mruby-simple-random" but mrbgem name is "mruby-random".
+This is because build system of mruby tracks dependencies of mrbgems by name.
 
 ## License
 
@@ -22,4 +25,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 DEALINGS IN THE SOFTWARE.
-

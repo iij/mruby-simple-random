@@ -117,7 +117,7 @@ mrb_f_srand(mrb_state *mrb, mrb_value self)
 }
 
 void
-mrb_mruby_simple_random_gem_init(mrb_state *mrb)
+mrb_mruby_random_gem_init(mrb_state *mrb)
 {
   struct RClass *krn;
   krn = mrb->kernel_module;
@@ -130,6 +130,6 @@ mrb_mruby_simple_random_gem_init(mrb_state *mrb)
 }
 
 void
-mrb_mruby_simple_random_gem_final(mrb_state *mrb)
+mrb_mruby_random_gem_final(mrb_state *mrb)
 {
 }
