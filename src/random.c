@@ -47,7 +47,7 @@ static mrb_value
 mrb_f_rand(mrb_state *mrb, mrb_value self)
 {
   mrb_value *argv;
-  int argc;
+  mrb_int argc;
   mrb_value max, seed;
 
   mrb_get_args(mrb, "*", &argv, &argc);
@@ -84,7 +84,7 @@ static mrb_value
 mrb_f_srand(mrb_state *mrb, mrb_value self)
 {
   mrb_value *argv;
-  int argc;
+  mrb_int argc;
   mrb_value old_seed, seed;
 
   mrb_get_args(mrb, "*", &argv, &argc);
